@@ -62,9 +62,15 @@ class Car(models.Model):
     )
     engine = models.CharField(max_length=10, choices=CHOICES_ENGINE)
     description = models.CharField(null=True, verbose_name='Комментарии')
+        CHOICES_RUDDER = (
+        ("Слева", "Слева"),
+        ("Права", "Права"),
+    )
+    Rudder = models.CharField(verbose_name='Руль', max_length=12,  choices=CHOICES_RUDDER)
 
     def __str__(self):
         return f'{self.marka} - {self.model}'
+        
 
 
 class CarPhoto(models.Model):
@@ -73,6 +79,7 @@ class CarPhoto(models.Model):
 
     def __str__(self):
         return f'{self.image} - {self.car}'
+        
 
 
 class Bet(models.Model):
